@@ -22,10 +22,6 @@ jobs:
             #   - name: Install, build, and upload your site
             #     uses: withastro/action@v5
 
-            - uses: pnpm/action-setup@v6
-              with:
-                  version: latest
-
             - uses: actions/setup-node@v6
               with:
                   # Version Spec of the version to use in SemVer notation.
@@ -33,8 +29,11 @@ jobs:
                   # Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node
                   node-version: "lts/*"
 
+            - name: Install pnpm
+              run: corepack enable && corepack prepare pnpm@latest --activate
+
             - name: Install deps
-              run: pnpm install
+              run: pnpm install --frozen-lockfile
 
             - name: Build project
               run: pnpm run build
@@ -45,7 +44,7 @@ jobs:
                   nekoweb-api-key: ${{ secrets.NEKOWEB_API_KEY }}
                   nekoweb-domain: "sxpernxva.nekoweb.org"
                   nekoweb-username: "sxpernxva"
-                  directory: "/dist"
+                  directory: "./dist"
 
             # deploy backup to github pages
             # - name: Deploy to GitHub Pages
