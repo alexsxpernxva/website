@@ -3,15 +3,41 @@
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/boykisser.gif" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Astro</title>
+
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+
+            #boykisser {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>website under construction</h1>
+        <p>come back soon... :3</p>
+
+        <p>in the meantime, i'm on discord @supernxva.163</p>
+
+        <img src="/boykisser.gif" alt="boykisser" id="boykisser" />
+        <br />
+        <small>^^^ click me btw</small>
+
+        <script>
+            const meow = new Audio("meow.mp3");
+            const boykisser = document.querySelector("#boykisser");
+
+            boykisser?.addEventListener("click", (e) => {
+                e.preventDefault();
+                meow.play();
+            });
+        </script>
+    </body>
 </html>
